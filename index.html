@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  </head>
+<body>
+    <div class="container">
+        <h2 class="text-center">How Many Times Can You Click on the Cats?</h2>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 id="catName"></h4>
+                <img data-bind='click: registerClick' id="cats" class="img-responsive" src="woody-on-grass.jpg">
+            </div>
+            <div class="col-xs-12">
+                <p><strong>You&rsquo;ve clicked on me <span data-bind='text: numberOfClicks'>&nbsp;</span> times! Mrwoww.</strong></p>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    <script>
+        var ClickCounterViewModel = function() {
+        this.numberOfClicks = ko.observable(0);
+
+        this.registerClick = function() {
+        this.numberOfClicks(this.numberOfClicks() + 1);
+              };
+          };
+
+          ko.applyBindings(new ClickCounterViewModel());
+    </script>
+</body>
+</html>

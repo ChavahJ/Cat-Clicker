@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+<head>
+<!-- Required meta tags always come first -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
-  </head>
+</head>
 <body>
     <div class="container-fluid">
         <h2 class="text-center">How Many Times Can You Click on the Pets?</h2>
-        <ul class="list-unstyled" data-bind="foreach: petList">
-            <li>
-                <h3 data-bind="text: name"></h3>
-                <p data-bind="click: Pet.addClicks">
-                    <img class="img-responsive" data-bind="attr: { src: imgURL }">
-                </p>
-                <p><span data-bind="text: noise"></span>! You&rsquo;ve clicked on me <span data-bind="text: clicks"></span> times.</p>
-            <li>
+        <ul class="list-unstyled list-view" data-bind="foreach: petModel">
+            <button>
+                <li data-bind="text: name"></li>
+            </button>
         </ul>
+        <div class="container pet-viewer" data-bind="foreach: petModel">
+            <h3 data-bind="text: name"></h3>
+            <button data-bind="click: Pet.addClicks">
+                <img class="img-responsive" data-bind="attr: { src: imgURL }">
+            </button>
+            <p><span data-bind="text: noise"></span>! You&rsquo;ve clicked on me <span data-bind="text: clicks"></span> times.</p>
+        </div>
     </div>
-    <!-- jQuery first, then Bootstrap JS. -->
+</body>
+<footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
-    <script src="pet2.js"></script>
-</body>
+    <script src="js/MOV.js"></script>
+</footer>
 </html>

@@ -1,3 +1,4 @@
+
 //MODEL with the array of information
 
 var petModel = {

@@ -128,7 +128,8 @@ var octopus = {
                 pet = pets[i];
 
                 //make a new pet list item and set its parameters
-                elem = document.createElement("li");
+                elem = document.createElement("button");
+                elem.classList.add("btn", "btn-primary","btn-block");
                 elem.textContent = pet.name;
 
                 //on click, setCurrentPet and render the catView

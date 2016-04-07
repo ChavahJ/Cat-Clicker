@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Required meta tags always come first -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<style>
+    h2 {
+        padding: 2rem 0;
+    }
+
+    h3 {
+        padding-top: 2rem;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-xs-center">How Many Times Can You Click on the Pets?</h2>
+        <div id ="pet-list">
+        </div>
+        <div id ="pet" class="row">
+            <div class="col-xs-12">
+                <h3 id="pet-name" class="display-4"></h3>
+                <p>&ldquo;<span id="pet-noise"></span>! You&rsquo;ve clicked on me <span id="pet-count"></span> times.&rdquo;</p>
+                <div class="col-xs-8">
+                    <img id="pet-img" src="" class="img-responsive" alt="cute picture of a pet">
+                </div>
+                <div class="col-xs-4">
+                    <button class="btn-info btn-block">Admin</button><br>
+                </div>
+                <div class="col-xs-4 admin-panel">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="name">Name</span>
+                      <input type="text" class="form-control" placeholder="" aria-describedby="name">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="noise">Noise</span>
+                      <input type="text" class="form-control" placeholder="" aria-describedby="noise">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="clicks">Clicks</span>
+                      <input type="text" class="form-control" placeholder="" aria-describedby="clicks">
+                    </div>
+                    <br>
+                    <button class="btn-danger">Cancel</button>
+                    <button class="btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script src="js/MOV.js"></script>
+</footer>
+</html>

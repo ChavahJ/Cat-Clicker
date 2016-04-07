@@ -10,7 +10,7 @@ var petList = [
     },
     {
         name: "Moony",
-        nicknameList: ['Little Ellie','Munecha'],
+        nicknameList: ['Little Ellie','Muñecha'],
         imgSrc: "img/moony-on-grass.jpg",
         noise: "Ruf ruf",
         clicks: 0
@@ -47,23 +47,23 @@ var Pet = function(data) {
 
     this.title = ko.computed(function() {
         if (this.clicks() < 10 ) {
-            return 'Baby';
-        } else if (this.clicks() < 30 ) {
-            return 'Child';
-        } else if (this.clicks() < 50) {
-            return 'Teen';
+            return 'you like me';
+        } else if (this.clicks() < 20 ) {
+            return 'you love me';
+        } else if (this.clicks() < 30) {
+            return 'you really love me';
         } else {
-            return 'Adult';
+            return 'you absolutely adore me';
         }
     }, this);
 }
 
-// [  ] Make the cats show up in a list
+// [!!] Make the cats show up in a list
 //
-// [  ] Make the currentPet change when you click on a cat in the list
+// [!!] Make the currentPet change when you click on a cat in the list
 // This will be a function for setting new currentPet
 //
-// [  ] Give yourself a high-five
+// [!!] Give yourself a high-five
 
 //this is the OCTOPUS
 var ViewModel = function() {
@@ -75,11 +75,12 @@ var ViewModel = function() {
         self.petList.push( new Pet(petItem) );
     });
 
-    this.setCurrentPet = function(petItem) {
-        self.currentPet(petItem);
-    };
-
     this.currentPet = ko.observable( this.petList()[0] );
+
+    //I got really stuck because I wasn't passing the correct parameter to this function!!!
+    this.setCurrentPet = function(data) {
+        self.currentPet(data);
+    };
 
     this.clickCounter = function () {
         self.currentPet().clicks(self.currentPet().clicks() + 1 );

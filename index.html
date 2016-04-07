@@ -16,14 +16,14 @@
         <div class="row">
             <h2 class="text-xs-center">How Many Times Can You Click on the Pets?</h2>
         </div>
-        <div class="container" data-bind="with: currentPet">
-            <div class="row" data-bind="foreach: petList">
+        <div class="row" data-bind="foreach: petList">
                 <button class="btn btn-block btn-primary" data-bind="text: name, click: $parent.setCurrentPet"></button>
-            </div>
+        </div>
+        <div class="container" data-bind="with: currentPet">
             <div class="row">
                 <div class="col-xs-12">
                     <h3 data-bind="text: name" class="display-4"></h3>
-                    <p><span data-bind="text: noise"></span>! You&rsquo;ve clicked on me <span data-bind="text: clicks"></span> times. That gives me the <strong>Title</strong> of <strong><span data-bind="text: title()"><span></strong>.</p>
+                    <p><span data-bind="text: noise"></span>! You&rsquo;ve clicked on me <span data-bind="text: clicks"></span> times. That means <strong><span data-bind="text: title()"><span></strong>.</p>
                 </div>
                 <div class="col-xs-12">
                     <img id="pet-img" src="" class="img-responsive" alt="cute picture of a pet" data-bind="click: $parent.clickCounter, attr: {src: imgSrc}">

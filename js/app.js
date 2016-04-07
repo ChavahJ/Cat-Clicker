@@ -1,12 +1,49 @@
-var ViewModel = function() {
-    this.clicks = ko.observable(0);
-    this.name = ko.observable('Woody');
-    this.imgSrc = ko.observable('img/woody-on-grass.jpg');
-    this.noise = ko.observable('Mrroow');
+//this is the MODEL
 
-    this.clickCounter = function () {
-        this.clicks(this.clicks() + 1 );
-    };
+var petList = [
+    {
+        name: "Woody",
+        nicknameList: ['Dude Jr','The Little Dude','Woodster'],
+        imgSrc: "img/woody-on-grass.jpg",
+        noise: "Mrroow",
+        clicks: 0
+    },
+    {
+        name: "Moony",
+        nicknameList: ['Little Ellie','Munecha'],
+        imgSrc: "img/moony-on-grass.jpg",
+        noise: "Ruf ruf",
+        clicks: 0
+    },
+    {
+        name: "Princess",
+        nicknameList: ['Foxy','Dad\'s Cat'],
+        imgSrc: "img/princess-on-bed.jpg",
+        noise: "Purrrrr",
+        clicks: 0
+    },
+    {
+        name: "Spanky",
+        nicknameList: ['Big Lug','Blondie'],
+        imgSrc: "img/spanky-on-trail.jpg",
+        noise: "Woof woof",
+        clicks: 0
+    },
+    {
+        name: "Lola and Woody",
+        nicknameList: ['Buddies','External Ones'],
+        imgSrc: "img/cats-in-carrier.jpg",
+        noise: "Lick lick",
+        clicks: 0
+    }
+];
+
+var Pet = function(data) {
+    this.name = ko.observable(data.name);
+    this.nicknameList = ko.observableArray(data.nicknameList);
+    this.imgSrc = ko.observable(data.imgSrc);
+    this.noise = ko.observable(data.noise);
+    this.clicks = ko.observable(data.clicks);
 
     this.title = ko.computed(function() {
         if (this.clicks() < 10 ) {
@@ -19,6 +56,34 @@ var ViewModel = function() {
             return 'Adult';
         }
     }, this);
+}
+
+// [  ] Make the cats show up in a list
+//
+// [  ] Make the currentPet change when you click on a cat in the list
+// This will be a function for setting new currentPet
+//
+// [  ] Give yourself a high-five
+
+//this is the OCTOPUS
+var ViewModel = function() {
+    var self = this;
+
+    this.petList = ko.observableArray([]);
+
+    petList.forEach(function(petItem){
+        self.petList.push( new Pet(petItem) );
+    });
+
+    this.setCurrentPet = function(petItem) {
+        self.currentPet(petItem);
+    };
+
+    this.currentPet = ko.observable( this.petList()[0] );
+
+    this.clickCounter = function () {
+        self.currentPet().clicks(self.currentPet().clicks() + 1 );
+    };
 }
 
 ko.applyBindings(new ViewModel());
